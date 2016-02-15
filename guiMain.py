@@ -4,12 +4,12 @@ import logging as log
 
 def buildGUI():
     log.debug("build GUI ...")
-    top = Tk()
+    root = Tk()
 
-
+    Button(root, text="BrainSweat").grid()
 
     log.info("GUI Done!")
-    return top
+    return root
 
 
 if __name__ == "__main__":
