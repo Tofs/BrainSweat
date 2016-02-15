@@ -5,11 +5,13 @@ import FileManager
 
 
 
-
+listbox = None
 def getFiles():
     global listbox
-    for item in FileManager.getAllFiles("./")):
-        
+    for item in FileManager.getAllFiles("./"):
+        log.debug("Add item to listbox: {0}".format(item))
+        listbox.insert(END, item)
+
 
 def buildGUI():
     global listbox
@@ -25,8 +27,8 @@ def buildGUI():
     mainFrame.columnconfigure(0, weight=1)
     mainFrame.rowconfigure(0, weight=1)
 
-    listbox = Listbox(mainFrame).grid(column=0,row=0, sticky=(W, E))
-
+    listbox = Listbox(mainFrame)
+    listbox.grid(column=0,row=0, sticky=(W, E))
     Button(mainFrame, text="Load", command=getFiles).grid(column=0,row=1, sticky=(W, E))
 
     log.info("GUI Done!")
