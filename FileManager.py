@@ -1,6 +1,7 @@
 import os
-import logging.config
 from logging import *
+import Utils
+
 
 # option to exclude things
 def getAllFiles(path):
@@ -14,7 +15,7 @@ def getAllFiles(path):
     return f
 
 if __name__ == "__main__":
-    logging.config.fileConfig('./Config/log.conf')
     info("Start")
+    Utils.initLogger()
     print getAllFiles("./")
     info("Stop")
