@@ -7,11 +7,12 @@ import FileManager
 
 
 def getFiles():
-    global paths
-    paths.set(FileManager.getAllFiles("./"))
+    global listbox
+    for item in FileManager.getAllFiles("./")):
+        
 
 def buildGUI():
-    global paths
+    global listbox
     log.debug("build GUI ...")
     root = Tk()
     root.title("BreainSweat")
@@ -24,8 +25,7 @@ def buildGUI():
     mainFrame.columnconfigure(0, weight=1)
     mainFrame.rowconfigure(0, weight=1)
 
-
-    Label(mainFrame, textvariable=paths).grid(column=0,row=0, sticky=(W, E))
+    listbox = Listbox(mainFrame).grid(column=0,row=0, sticky=(W, E))
 
     Button(mainFrame, text="Load", command=getFiles).grid(column=0,row=1, sticky=(W, E))
 
